@@ -79,8 +79,8 @@ def snowpark_basic_auth() -> Session:
         "USER":"<user-id>",
         "PASSWORD":"<pwd>",
         "ROLE":"SYSADMIN",
-        "DATABASE":"task_pipeline_db",
-        "SCHEMA":"public",
+        "DATABASE":"bigdata_db",
+        "SCHEMA":"stage_sch",
         "WAREHOUSE":"adhoc_wh"
     }
     # creating snowflake session object
