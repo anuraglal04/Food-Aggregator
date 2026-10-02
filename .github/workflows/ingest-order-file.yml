@@ -1,0 +1,31 @@
+name: Two-Days-48Hrs-File-Upload
+
+on:
+  schedule:
+     - cron: '45 * * * *'  # Runs every 45th min of the hour
+  workflow_dispatch:  # Allows manual triggering from the GitHub Actions tab
+
+
+jobs:
+  pushOrderData:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1/4 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 2/4 Set up Python3 Env
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'  # specify the Python version you want to use
+
+      - name: 3/4 Install Dependencies (Snowflake)
+        run: |
+          python -m pip install --upgrade pip
+          pip install "snowflake-snowpark-python[pandas]"
+
+      - name: 4/4 Push CSV To Stage
+        run: |
+          echo -----------------------------------------------------------------------
+          python src/load-static-files.py
+          echo -----------------------------------------------------------------------
