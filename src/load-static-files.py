@@ -130,7 +130,7 @@ def main():
     sf_session.sql(insert_sql).collect()
 
     order_file_name = f'{next_run_day}/{next_run_hour_text}/orders.csv'
-    order_stg_location = f'@bigdata_db.stage_sch.csv_stg/orders/{next_run_day}/{next_run_hour_text}'
+    order_stg_location = f'@bigdata_db.stage_sch.csv_stg/order/{next_run_day}/{next_run_hour_text}'
     order_item_file_name = f'{next_run_day}/{next_run_hour_text}/order-items.csv'
     order_item_stg_location = f'@bigdata_db.stage_sch.csv_stg/order-items/{next_run_day}/{next_run_hour_text}'
     delivery_file_name = f'{next_run_day}/{next_run_hour_text}/delivery.csv'
