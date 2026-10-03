@@ -75,7 +75,7 @@ next_run_specification_sql ='''
 # Following credential has to come using secret whie running in automated way
 def snowpark_basic_auth() -> Session:
     connection_parameters = {
-       "ACCOUNT":"KHPZDGN-LE17488",
+       "ACCOUNT":"KHPZDGNLE17488",
         "USER":"Anuraglal05",
         "PASSWORD":"9852014783Mom@@",
         "ROLE":"SYSADMIN",
