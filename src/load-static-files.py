@@ -130,11 +130,11 @@ def main():
     sf_session.sql(insert_sql).collect()
 
     order_file_name = f'{next_run_day}/{next_run_hour_text}/orders.csv'
-    order_stg_location = f'@task_pipeline_db.stage_sch.csv_stg/orders/{next_run_day}/{next_run_hour_text}'
-    order_item_file_name = f'{next_run_day}/{next_run_hour_text}/order-item.csv'
-    order_item_stg_location = f'@task_pipeline_db.stage_sch.csv_stg/order-items/{next_run_day}/{next_run_hour_text}'
+    order_stg_location = f'@bigdata_db.stage_sch.csv_stg/orders/{next_run_day}/{next_run_hour_text}'
+    order_item_file_name = f'{next_run_day}/{next_run_hour_text}/order-items.csv'
+    order_item_stg_location = f'@bigdata_db.stage_sch.csv_stg/order-items/{next_run_day}/{next_run_hour_text}'
     delivery_file_name = f'{next_run_day}/{next_run_hour_text}/delivery.csv'
-    delivery_stg_location = f'@task_pipeline_db.stage_sch.csv_stg/delivery/{next_run_day}/{next_run_hour_text}'
+    delivery_stg_location = f'@bigdata_db_db.stage_sch.csv_stg/delivery/{next_run_day}/{next_run_hour_text}'
 
     logging.info('-----------------------')
 
@@ -150,7 +150,7 @@ def main():
     # pushing order item file
     oi_result = sf_session.file.put(f'{base_location}/{order_item_file_name}', order_item_stg_location,overwrite=True)
     logging.info('Order Item File placed successfully in stage location in snowflake')
-    lst_query = f'list {order_item_stg_location}/order-item.csv.gz'
+    lst_query = f'list {order_item_stg_location}/order-items.csv.gz'
     logging.info(f'list query to fetch the stage file to check if they exist there or not = {lst_query}')
     result_lst = sf_session.sql(lst_query).collect()
     logging.info(f'File is placed in snowflake stage location= {result_lst}')
