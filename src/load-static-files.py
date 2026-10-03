@@ -74,10 +74,10 @@ next_run_specification_sql ='''
 
 # Following credential has to come using secret whie running in automated way
 def snowpark_basic_auth() -> Session:
-    connection_parameters = {
+connection_parameters = {
     "ACCOUNT":"KHPZDGN-LE17488",
-    "USER”:”Anuraglal05”,
-    "PASSWORD”:”9852014783Mom@@“,
+    "USER":"Anuraglal05",
+    "PASSWORD”:"9852014783Mom@@",
     "ROLE":"SYSADMIN",
     "DATABASE":"bigdata_db",
     "SCHEMA":"stage_sch",
