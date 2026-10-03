@@ -73,15 +73,17 @@ next_run_specification_sql ='''
                                 '''
 
 # Following credential has to come using secret whie running in automated way
+import os
+
 def snowpark_basic_auth() -> Session:
     connection_parameters = {
-       "ACCOUNT":"<your-account-id>",
-        "USER":"<user-id>",
-        "PASSWORD":"<pwd>",
-        "ROLE":"SYSADMIN",
-        "DATABASE":"bigdata_db",
-        "SCHEMA":"stage_sch",
-        "WAREHOUSE":"adhoc_wh"
+        "ACCOUNT":   os.environ["KHPZDGN-LE17488"].strip(),
+        "USER":      os.environ["Anuraglal05"].strip(),
+        "PASSWORD":  os.environ["9852014783Mom@@"],
+        "ROLE":      os.environ.get("SNOWFLAKE_ROLE", "SYSADMIN"),
+        "DATABASE":  os.environ.get("SNOWFLAKE_DATABASE", "bigdata_db"),
+        "SCHEMA":    os.environ.get("SNOWFLAKE_SCHEMA", "stage_sch"),
+        "WAREHOUSE": os.environ.get("SNOWFLAKE_WAREHOUSE", "adhoc_wh"),
     }
     # creating snowflake session object
     return Session.builder.configs(connection_parameters).create()
