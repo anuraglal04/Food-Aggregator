@@ -134,7 +134,7 @@ def main():
     order_item_file_name = f'{next_run_day}/{next_run_hour_text}/order-items.csv'
     order_item_stg_location = f'@bigdata_db.stage_sch.csv_stg/order-items/{next_run_day}/{next_run_hour_text}'
     delivery_file_name = f'{next_run_day}/{next_run_hour_text}/delivery.csv'
-    delivery_stg_location = f'@bigdata_db_db.stage_sch.csv_stg/delivery/{next_run_day}/{next_run_hour_text}'
+    delivery_stg_location = f'@bigdata_db.stage_sch.csv_stg/delivery/{next_run_day}/{next_run_hour_text}'
 
     logging.info('-----------------------')
 
